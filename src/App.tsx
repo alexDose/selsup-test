@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import './index.css'
 
 interface Param {
     id: number;
@@ -88,12 +89,16 @@ class ParamEditor extends Component<Props, State> {
                     const value = paramValue ? paramValue.value : '';
 
                     return (
-                        <div key={param.id}>
-                            <label>{param.name}:</label>
-                            <input onChange={(event) => this.handleChange(param.id, event.target.value)}
-                                   value={value}
-                                   type={param.type === 'string' ? 'text' : 'number'}
-                            />
+                        <div className={'form-container'} key={param.id}>
+                            <div className={'form-title'}>
+                                <label>{param.name}:</label>
+                            </div>
+                            <div>
+                                <input onChange={(event) => this.handleChange(param.id, event.target.value)}
+                                       value={value}
+                                       type={param.type === 'string' ? 'text' : 'number'}
+                                />
+                            </div>
                         </div>
                     );
                 })}
